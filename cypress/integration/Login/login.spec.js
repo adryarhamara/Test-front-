@@ -67,8 +67,13 @@ describe('Login - Parodify', () => {
 
     describe('Validação dos campos', () => {
 
-        it('Validação Email', () => {
-            
+        //Alert email e senha errados 
+        it.only('Validação Email e senha errado', () => {
+            cy.get('#user_email').type('aaaa@gmail.com')
+            cy.get('#user_password').type('123456')
+            cy.get('.actions > .button').click()
+            cy.get('.message-body').should('exist')
+            .should('contain', 'Oops! Email e/ou senha incorretos.')
         })
     })    
 })

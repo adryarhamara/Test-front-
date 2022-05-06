@@ -67,7 +67,7 @@ describe('Login - Parodify', () => {
 
     describe('Validação dos campos', () => {
 
-        //Alert email e senha errados 
+        //Alert email e senha errados. 
         it.only('Validação Email e senha errado', () => {
             cy.get('#user_email').type('aaaa@gmail.com')
             cy.get('#user_password').type('123456')

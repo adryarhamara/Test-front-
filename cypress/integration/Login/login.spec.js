@@ -68,13 +68,14 @@ describe('Login - Parodify', () => {
     describe('Validação do campo email', () => {
 
         it('Validação Email', () => {
-            cy.get('#user_email').type('username@gmail.com')
+            cy.get('#user_email').type('papito@qa.ninja')
             cy.get('#user_password').type('pwd123')
             cy.get('.actions > .button').click()
         })
 
-        it('Erro, Validação de campo de email', () => {
+       it('Erro, Validação de campo de email', () => {
             cy.get('.message-body').should('exist')
+            cy.get('.message-body').should('contain','')
         })
     
     })  
@@ -83,12 +84,18 @@ describe('Login - Parodify', () => {
        
         it('Validação Senha', () => {
             cy.get('#user_email').type('papito@qa.ninja')
-            cy.get('#user_password').type('123456')
+            cy.get('#user_password').type('123')
             cy.get('.actions > .button').click()
         })
 
-        it('Erro, Validação de campo senha', () => {
+       /* it('Erro, Validação de campo de senha', () => {
             cy.get('.message-body').should('exist')
+            cy.get('.message-body').should('contain','')
         })
+      */
+
     })
+    
+    
+
 })

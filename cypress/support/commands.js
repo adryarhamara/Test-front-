@@ -26,7 +26,7 @@
 
 
 Cypress.Commands.add('login', () => {
-    cy.visit('/sign_in')
+    cy.visit('/users/sign_in')
     cy.get('#user_email').type('papito@qa.ninja')
     cy.get('#user_password').type('pwd123')
     cy.get('.actions > .button').click()

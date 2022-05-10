@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+
 
 describe('Login - Parodify', () => {
     before(() => {
@@ -38,12 +38,15 @@ describe('Login - Parodify', () => {
         })
         it('Botão - Cadastro', () => {
             cy.get('small > a').should('exist')
+            cy.pause()
         })
     })
 
     describe('Verificando o texto dos componentes da página', () => {
+        
         it('Botão Menu Login', () => {
             cy.get('.menu-button > .button').should('contain','Login')
+            
         })
         it('Email', () => {
             cy.get(':nth-child(3) > label').should('contain', 'Email') 
@@ -53,6 +56,7 @@ describe('Login - Parodify', () => {
         })  
         it('Lembrar Dados', () => {
             cy.get(':nth-child(5) > label').should('contain','Lembrar meus dados')
+            cy.get('#user_remember_me').check()
         }) 
         it('Botão - Log in', () => {
             cy.get('.actions > .button').should('contain','Log in')
@@ -60,22 +64,19 @@ describe('Login - Parodify', () => {
         it('Não possui cadastro', () => {
             cy.get('small').should('contain','Ainda não possui uma conta? ')
         })
+        
         it('Botão Cadastro', () => {
             cy.get('small > a').should('contain','Cadastre-se')
+            cy.pause()
         })
     })
 
     describe('Validação do campo email', () => {
 
         it('Validação Email', () => {
-            cy.get('#user_email').type('papito@qa.ninja')
+            cy.get('#user_email').type('username@gmail.com')
             cy.get('#user_password').type('pwd123')
             cy.get('.actions > .button').click()
-        })
-
-       it('Erro, Validação de campo de email', () => {
-            cy.get('.message-body').should('exist')
-            cy.get('.message-body').should('contain','')
         })
     
     })  
@@ -83,19 +84,7 @@ describe('Login - Parodify', () => {
     describe('Validação do campo senha', () => {
        
         it('Validação Senha', () => {
-            cy.get('#user_email').type('papito@qa.ninja')
-            cy.get('#user_password').type('123')
-            cy.get('.actions > .button').click()
-        })
-
-       /* it('Erro, Validação de campo de senha', () => {
-            cy.get('.message-body').should('exist')
-            cy.get('.message-body').should('contain','')
-        })
-      */
-
     })
-    
-    
 
+        })
 })

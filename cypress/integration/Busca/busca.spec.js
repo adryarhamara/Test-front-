@@ -1,14 +1,11 @@
 /// <reference types="cypress" />
 
-describe('Busca -Parodify', () => {
-    before(() => {
-        cy.visit('/search/new')
+describe('Busca - Parodify', () => {
+    beforeEach(() => {
+         cy.login()
+         cy.visit('/search/new')
+    })
+    it('', () => {
         
-    }) 
-    describe('verificando o carregamento do componente da página',() => {
-       
-        it('', () => {
-
-        })
     })
 })

@@ -5,7 +5,7 @@ describe('Login - Parodify', () => {
         cy.visit('/users/sign_in')
     })
 
-    describe('Verficando o carregamento do componente da página', () => {
+    describe('Verficando o carregamento dos componentes da página', () => {
 
         it('Logo - Parodify', () =>{
             cy.get('img').should('exist')
@@ -38,7 +38,6 @@ describe('Login - Parodify', () => {
         })
         it('Botão - Cadastro', () => {
             cy.get('small > a').should('exist')
-            cy.pause()
         })
     })
 
@@ -67,24 +66,36 @@ describe('Login - Parodify', () => {
         
         it('Botão Cadastro', () => {
             cy.get('small > a').should('contain','Cadastre-se')
-            cy.pause()
         })
     })
 
     describe('Validação do campo email', () => {
-
-        it('Validação Email', () => {
-            cy.get('#user_email').type('username@gmail.com')
-            cy.get('#user_password').type('pwd123')
-            cy.get('.actions > .button').click()
+        afterEach(() => {
+            cy.get('#user_email').clear()
         })
-    
+        it('Retornando erro caso o email seja invalido - sem nome do provedor', () => {
+            cy.get('#user_email').type('username@fdsfsds')
+        })
+        it('Retornando erro caso o email seja invalido - sem nome do usuario', () => {
+            cy.get('#user_email').type('@gmail.com')
+        })
+        it('Retornando erro caso o email seja invalido - incompleto', () => {
+            cy.get('#user_email').type('username@gmail')
+        })
     })  
 
     describe('Validação do campo senha', () => {
-       
-        it('Validação Senha', () => {
-    })
-
+        afterEach(() => {
+            cy.get('#user_password').clear()
         })
+        it('Retornando erro caso a senha seja invalida - apenas numeros', () => {
+            cy.get('#user_password').type('125')
+        })
+        it('Retornando erro caso a senha seja invalida - apenas consoantes', () => {
+            cy.get('#user_password').type('inha')
+        })
+        it('Retornando erro caso a senha seja invalida - apenas caracteres', () => {
+            cy.get('#user_password').type('@#$%¨&')
+        })
+    })
 })

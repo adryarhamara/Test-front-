@@ -1,9 +1,8 @@
 /// <reference types="cypress" />
 
-describe('Busca Inicio - Parodify', () => {
-    beforeEach(() => {
+describe('Busca - Parodify', () => {
+    before(() => {
          cy.login()
-         cy.visit('/')
     })
     describe('Verficando o carregamento dos componentes da página', () => {
 
@@ -44,9 +43,7 @@ describe('Busca Inicio - Parodify', () => {
         it('Musicas Recomendadas', () => {
             cy.get(':nth-child(3) > .is-size-5').should('contain','Recomendadas')
         })
-        it('Botão de busca de Musica', () => {
-            cy.get('.is-fixed-bottom > :nth-child(2)').click()
-        })
+      
     })
         
     

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Busca Inicio - Parodify', () => {
-    beforeEach(() => {
+    before(() => {
          cy.login()
          cy.visit('/favorites')
     })

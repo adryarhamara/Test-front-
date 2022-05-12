@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Cadastro - Parodify', () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('/users/sign_up')
    })
    describe('Verificando o carregamento dos componentes da página',() => {
@@ -118,12 +118,9 @@ describe('Cadastro - Parodify', () => {
         })
         it('Confirmação de senha', () => {
             cy.get('#user_password_confirmation').type('123456')
-            cy.get('.actions > .button').click()
+           
         })
-        it('Mensagem de Erro', () => {
-            cy.get('.message-body').should('exist')
-            cy.get('.message-body').should('contain','Oops! Informe seu email e sua senha.')
-        })
+        
     })
     
   })

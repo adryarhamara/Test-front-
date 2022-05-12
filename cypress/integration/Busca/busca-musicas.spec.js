@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Busca Musicas - Parodify', () => {
-    beforeEach(() => {
+    before(() => {
          cy.login()
          cy.visit('/search/new')
     })

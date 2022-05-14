@@ -38,14 +38,20 @@ describe('Busca Musicas - Parodify', () => {
         })
         it('Botão - Inicio', () => {
             cy.get('.is-fixed-bottom > :nth-child(1)').should('exist')
+        })
+        it('Icone "Botão - Inicio"', () => {
             cy.get(':nth-child(1) > .has-text-white > .fa').should('exist')
         })
         it('Botão - Busca', () => {
             cy.get('.is-fixed-bottom > :nth-child(2)').should('exist')
+        })
+        it('Icone "Botão - Busca"', () => {
             cy.get(':nth-child(2) > .has-text-white > .fa').should('exist')
         })
         it('Botão - Favorites', () => {
             cy.get('.is-fixed-bottom > :nth-child(3)').should('exist')
+        })
+        it('Icone "Botão - Favoritos"', () => {
             cy.get('.has-text-white > .fas').should('exist')
         })
 
@@ -56,14 +62,12 @@ describe('Busca Musicas - Parodify', () => {
             cy.get('.is-size-5').should('contain','Buscar')
         })
     })
-    describe('Validação e preenchimento do campo', () => {
+    describe('Validação do campo', () => {
     
         it('Caixa de Pesquisa - Busca', () => {
             cy.get('#search').type('Sertanejo')
         })
-        it('Botão - Favoritos', () => {
-            cy.get('.is-fixed-bottom > :nth-child(3)').click()
-        })
+       
     })
                 
 })    

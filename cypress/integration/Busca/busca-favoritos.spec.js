@@ -53,7 +53,7 @@ describe('Busca Inicio - Parodify', () => {
             cy.get('.is-size-4').should('contain','Favoritos')
         })
         it('Botão - Albuns', () => {
-            cy.get('.is-active > a').should('contain','Álbuns')
+            cy.get('.is-active > a').should('contain','Álbums')
         })
         it('Botão - Musicas', () => {
             cy.get('ul > :nth-child(2) > a').should('contain','Músicas')
@@ -69,9 +69,6 @@ describe('Busca Inicio - Parodify', () => {
         })
         it('Botão - Musicas', () => {
             cy.get('ul > :nth-child(2) > a').click()
-        })
-        it('Botão - Tocar Todas', () => {
-            cy.get('#play-all').click()
         })
         it('Botão - Saída',() => {
             cy.get('.dropdown-trigger > .icon > .fas').click()
